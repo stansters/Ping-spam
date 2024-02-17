@@ -21,7 +21,6 @@ module.exports = {
                 .then((channel) => {
                   console.log(`Created channel ${channel.name} with ID ${channel.id}`);
                   interaction.editReply(`Created channel ${channel.name}  with ID ${channel.id}`);
-                  // Store the channel ID in the SQLite database
                   db.run('INSERT INTO channels (name, id) VALUES (?, ?) ', [channelName, channel.id], function(err) {
                     if (err) {
                       return console.error(err.message);

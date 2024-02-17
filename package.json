@@ -3,5 +3,15 @@
     "discord.js": "^14.14.1",
     "fs": "^0.0.1-security",
     "sqlite3": "^5.1.7"
-  }
+  },
+  "name": "ping-spam",
+  "description": "Discord bot that spams you with many, many pings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "index": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
 }

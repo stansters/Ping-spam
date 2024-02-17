@@ -1,6 +1,7 @@
 database.db
 config.json
-
+test.js
+package-lock.json
 # Logs
 logs
 *.log
