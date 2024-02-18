@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const sqlite3 = require('sqlite3').verbose();
-
+const fs = require('fs');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,6 +11,9 @@ module.exports = {
         .setDescription('How many times to ping in each channel? (default is 1)')
         .setRequired(false)),
 	async execute(interaction) {
+        if (fs.existsSync('running')) {
+          await interaction.reply('An instance of the command is already running on this bot!')
+        } else {
         let timess = interaction.options.getNumber('times')
         if (timess == null){
           var times = (1)
@@ -40,8 +43,7 @@ module.exports = {
         var minsleft = 0
         var timeleft = 0
         const timerVar = setInterval(timerfunc, 1000)
-
-
+        fs.writeFileSync('running',' ');
             for (let i = 0; i < times; i++){
               for (let row of rows) {
                 const channelId = row.id;
@@ -55,6 +57,7 @@ module.exports = {
                     .then(() => console.log(`Sent message #${runs} in channel ${channel.name} with ID ${channel.id} (${percentdone}% done & ${timeleft} left) ${timer}s`))
                     .then(() => {if (runs == totalRows){
                       clearInterval(timerVar)
+                      fs.unlinkSync('running')
                       interaction.channel.send('All done!')
                     }})
                     .catch(console.error);
@@ -63,8 +66,7 @@ module.exports = {
                 }
               }
             }
-        });
-          
-        },
+        });  
+      }},
     };
 	
