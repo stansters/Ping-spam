@@ -2,4 +2,6 @@
     "clientId": "",
     "guildId": "",
     "token": ""
+    "adminrole": "",
+    "channelwhitelist": ""
 }
