@@ -52,7 +52,7 @@ client.once('ready', () => {
     console.log(`| Successfully logged in as ${client.user.tag} |`);
     console.log(finishedthingy);
 	status()
-	setInterval(status, 1800000)
+	setInterval(status, 150000)
 });
 
 
