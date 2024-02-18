@@ -2,6 +2,6 @@
     "clientId": "",
     "guildId": "",
     "token": ""
-    "adminrole": "",
-    "channelwhitelist": ""
+    "adminrole": "", // role ID that can use create channel and purge server commands
+    "channelwhitelist": "" // channel ID that wont get deleted with purge server (can only be one channel ID)
 }
