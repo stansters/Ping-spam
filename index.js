@@ -38,15 +38,21 @@ db.serialize(() => {
 	);
   });
 
-client.once('ready', () => {
+function status(){
+	console.log('Set status')
 	client.user.setPresence({
 		activities: [{ name: `wiw yaw cwute widdle pp OwO~`, type: ActivityType.Playing }],
 		status: 'dnd',
 	});
+}
+
+client.once('ready', () => {
     var finishedthingy = new Array(`| Successfully logged in as ${client.user.tag} |`.replace( /\s/g,' ').length + 1).join('-');
     console.log(finishedthingy);
     console.log(`| Successfully logged in as ${client.user.tag} |`);
     console.log(finishedthingy);
+	status()
+	setInterval(status, 1800000)
 });
 
 
